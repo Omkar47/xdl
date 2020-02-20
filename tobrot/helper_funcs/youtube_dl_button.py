@@ -149,7 +149,7 @@ async def youtube_dl_call_back(bot, update):
             "-f", minus_f_format,
             "--hls-prefer-ffmpeg", youtube_dl_url,
             "-o", download_directory,
-            "--external-downloader", aria2c,
+            "--external-downloader", "aria2c",
             "--external-downloader-args", '-c -j 8 -x 8 -s 8 -k 5M',
             "--verbose",
         ]

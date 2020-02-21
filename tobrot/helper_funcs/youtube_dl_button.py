@@ -128,8 +128,6 @@ async def youtube_dl_call_back(bot, update):
             "--audio-quality", youtube_dl_format,
             youtube_dl_url,
             "-o", download_directory,
-            "--external-downloader", "aria2c",
-            "--external-downloader-args", '-c -j 16 -x 16 -s 16 -k 5M --uri-selector=adaptive --file-allocation=falloc',
         ]
     else:
         # command_to_exec = ["youtube-dl", "-f", youtube_dl_format, "--hls-prefer-ffmpeg", "--recode-video", "mp4", "-k", youtube_dl_url, "-o", download_directory]
@@ -150,8 +148,6 @@ async def youtube_dl_call_back(bot, update):
             "-f", minus_f_format,
             "--hls-prefer-ffmpeg", youtube_dl_url,
             "-o", download_directory,
-            "--external-downloader", "aria2c",
-            "--external-downloader-args", '-c -j 16 -x 16 -s 16 -k 5M --uri-selector=adaptive --file-allocation=falloc',
         ]
     #
     command_to_exec.append("--no-warnings")
@@ -159,6 +155,8 @@ async def youtube_dl_call_back(bot, update):
     command_to_exec.append("--restrict-filenames")
     command_to_exec.append("--embed-thumbnail")
     # command_to_exec.append("--verbose")
+    command_to_exec.append("--external-downloader", "aria2c")
+    command_to_exec.append("--external-downloader-args", '-c -j 16 -x 16 -s 16 -k 5M --uri-selector=adaptive --file-allocation=falloc')
     #
     if "hotstar" in youtube_dl_url:
         command_to_exec.append("--geo-bypass-country")

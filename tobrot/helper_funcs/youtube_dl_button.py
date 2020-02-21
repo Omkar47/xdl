@@ -160,7 +160,6 @@ async def youtube_dl_call_back(bot, update):
     # command_to_exec.append("--quiet")
     command_to_exec.append("--restrict-filenames")
     command_to_exec.append("--embed-thumbnail")
-    command_to_exec.append("--embed-subs")
     #
     if "hotstar" in youtube_dl_url:
         command_to_exec.append("--geo-bypass-country")
